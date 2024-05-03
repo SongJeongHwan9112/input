@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네이버웹툰</title>
+  <style>
+    .naver_webtoon .on {
+      color: red;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <!--  <div class="banner">
+    <ul>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+    </ul>
+    <div class="indicator">아이콘 생성될 영역</div>
+  </div>
+
+  <div class="naver_webton">
+    <ul>
+      <li><span>1</span></li>
+      <li><span>2</span></li>
+      <li><span>3</span></li>
+      <li><span>4</span></li>
+      <li><span>5</span></li>
+      <li><span>6</span></li>
+      <li><span>7</span></li>
+      <li><span>8</span></li>
+      <li><span>9</span></li>
+      <li><span>10</span></li>
+      <li><span>11</span></li>
+      <li><span>12</span></li>
+      <li><span>13</span></li>
+      <li><span>14</span></li>
+      <li><span>15</span></li>
+    </ul>
+    <div class="indicator1">아이콘 생성될 영역</div>
+  </div><!-- naver_webton -->
+
+  /* const bannerBox = document.getElementsByClassName('banner')[0];
+
+  <div class="naver_webtoon">
+    <div>
+      <p>월요웹툰</p>
+      <p>화요웹툰</p>
+      <p>수요웹툰</p>
+      <p>목요웹툰</p>
+      <p>금요웹툰</p>
+      <p>토요웹툰</p>
+      <p>일요웹툰</p>
+    </div>
+    <ul class="webtoon_list"></ul>
+  </div>
+  <script>
+    const bannerlists = bannerBox.getElementsByTagName('li');
+    const bannerlength = bannerlists.length; // 5
+    const iconBox = bannerBox.getElementsByClassName('indicator')[0];
+
+    let icons = '';
+    for (let i = 1; i <= bannerlength; i++) {
+      // console.log('반복' + i);
+      icons += '<li><span>' + i + '번</span></li>';
+    }
+
+    iconBox.innerHTML = icons;//텍스트 형태로 담아달라고 함
+    console.log(bannerBox);
+
+
+    // <div>
+    //  <span>1</span>
+    //  <span>2</span>
+    //  <span>3</span>
+    //  <span>4</span>
+    // <span>5</span>
+    // </div >
+
+    //15개의 리스트 생성
+    // 1 ~ 15번호 달기
+    const tabmenu = document.querySelectorAll('naver_webtoon p')
+    const tablength = tabmenu.length;
+    console.log('네이버 탭메뉴 갯수 : ' + tablength);
+    let today = new Date().getDay();//일
+    // 네이버웹툰 탭메뉴에 요일 디자인 .on
+    console.log(today);
+    if (today == 0) {
+      today = 7;
+    }
+    tabmenu[today - 1].className = 'on';
+
+
+    const webtoonBox = document.getElementsByClassName('naver_webtoon')[0];
+    const webtoonLists = webtoonBox.getElementsByTagName('ul')[0];
+    const bannerlength1 = bannerlists1.length;
+    let webtoonContent = '';
+
+    for (let i = 1; i <= 15; i++) {
+      webtoonContent += '<li><span>' + i + '</span></li>';
+    }
+    webtoonLists.innerHTML = webtoonContent;
+
+    console.log(new Date().getDay()); // 일(0) ~ 목()
+  </script>
+
+
+</body>
+
+</html>
+
+
+<!-- 
+  <div class="naver_webtoon">
+      <div>
+        <p>월요웹툰</p>
+        <p>화요웹툰</p>
+        <p>수요웹툰</p>
+        <p>목요웹툰</p>
+        <p>금요웹툰</p>
+        <p>토요웹툰</p>
+        <p>일요웹툰</p>
+      </div>
+      <ul class="webtoon_list"></ul>
+    </div>
+
+    <script>
+      // 15개의 리스트 생성
+      //   1 ~ 15 번호 달기
+      let webtoonBox = document.getElementsByClassName('naver_webtoon')[0];
+      let webtoonLists = webtoonBox.getElementsByTagName('ul')[0];
+      let webtoonContent = '';
+
+      for (let i = 1; i <= 15; i++) {
+        webtoonContent += '<li><span>' + i + '</span></li>';
+      }
+      webtoonLists.innerHTML = webtoonContent;
+ -->
+
+<!-- 
+
+  const tabmenu = document.querySelectorAll('.naver_webton1 p');
+    const naverWebton = document.getElementsByClassName('naver_webton')[0];
+    const ulBox = naverWebton.getElementsByTagName('ul')[0];
+    const bannerlength1 = bannerlists1.length;
+    const iconBox1 = bannerBox1.getElementsByClassName('naver_webton')[0];
+
+
+    let icons1 = '';
+    for (let i = 1; i <= 15; i++) {
+      icons1 += '<li><span>' + '</span></li>';
+    }
+    iconBox1.innerHTML = icons1;
+  -->

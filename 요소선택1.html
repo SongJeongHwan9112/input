@@ -1,0 +1,371 @@
+<!-- 
+  모든게 다 익숙해야한다. 스크립트를 못 넘으면 어렵다 급여선도 엄청 낮아진다. 
+  종이랑 팬을 준비해야한다.코드 그림을 옆에 그려본다.이해하기 쉽게 정리하기
+  천천히 진입할 동안만 몇일만 팀프로젝트 천천히 하기 
+  dt를 클릭하면 dd를 보이게/안보이게
+  dd.style.display = 'block'
+  dd.style.display = 'none'
+  규칙을 외워야한다.
+  -->
+<!-- https://www.cha.go.kr/main.html 문화재청 공지사항 html,css,js 구현 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    li,
+    dl,
+    dt,
+    dd,
+    table,
+    th,
+    td,
+    form,
+    fieldset,
+    legend,
+    input,
+    textarea,
+    button,
+    select {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    .naver_webtoon .on {
+      color: red;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="box1">id:box1 이름을 가진 div</div>
+  <div class="box2">class:box2 이름을 가진 div</div>
+  <div class="box2">class:box2 이름을 가진 div</div>
+  <div class="box2">class:box2 이름을 가진 div</div>
+  <div class="box2">class:box2 이름을 가진 div</div>
+
+  <script>
+    const box1 = document.getElementById('box1');
+    box1.style.color = 'red';
+    box1.style.backgroundColor = 'yellow';
+
+    const box2 = document.getElementsByClassName('box2');
+    box2[0].style.border = '1px solid gray';
+    box2[1].style.backgroundColor = 'antiquewhite';
+
+    //   .box2에 모두 동일한 디자인 : 테두리, 색상, 배경색, 글자크기
+    for (let i = 0; i < box2.length; i++) {
+      box2[i].style.border = '2px solid gray';
+      box2[i].style.color = 'white';
+      box2[i].style.backgroundColor = 'aqua';
+    }
+
+    //   Array.from(box2).forEach((ele) => (ele.style.color = 'red'));
+
+    let bgColorName = ['red', 'blue', 'pink', 'aqua', 'yellow', 'brown'];
+    for (let i = 0; i < box2.length; i++) {
+      box2[i].style.backgroundColor = bgColorName[i];
+    }
+  </script>
+
+  <div class="banner">
+    <ul>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
+    </ul>
+    <div class="indicator">아이콘 생성될 영역</div>
+  </div>
+
+  <script>
+    let bannerBox = document.getElementsByClassName('banner')[0];
+    let bannerLists = bannerBox.getElementsByTagName('li');
+    let bannerLength = bannerLists.length;
+    //   console.log(bannerLength);
+    let iconBox = bannerBox.getElementsByClassName('indicator')[0];
+
+    let icons = '';
+    for (let i = 1; i <= bannerLength; i++) {
+      // console.log('반복' + i);
+      icons += '<span>' + i + '번</span>';
+    }
+    iconBox.innerHTML = icons;
+  </script>
+
+  <div class="naver_webtoon">
+    <div>
+      <p>월요웹툰</p>
+      <p>화요웹툰</p>
+      <p>수요웹툰</p>
+      <p>목요웹툰</p>
+      <p>금요웹툰</p>
+      <p>토요웹툰</p>
+      <p>일요웹툰</p>
+    </div>
+    <ul class="webtoon_list"></ul>
+  </div>
+
+  <script>
+    // 15개의 리스트 생성
+    //   1 ~ 15 번호 달기
+    let webtoonBox = document.getElementsByClassName('naver_webtoon')[0];
+    let webtoonLists = webtoonBox.getElementsByTagName('ul')[0];
+    let webtoonContent = '';
+
+    for (let i = 1; i <= 15; i++) {
+      webtoonContent += '<li><span>' + i + '</span></li>';
+    }
+    webtoonLists.innerHTML = webtoonContent;
+
+    //   일(0) ~
+    //   console.log(new Date().getDay());
+
+    const tabmenu = document.querySelectorAll('.naver_webtoon p');
+    const tabLength = tabmenu.length;
+    //   console.log(tabLength);
+    let today = new Date().getDay();
+    //   네이버 웹툰 탭메뉴에 요일 디자인 on 붙이기
+    //   if (today == 0) today = 7;
+    tabmenu[today == 0 ? 6 : today - 1].className = 'on';
+  </script>
+
+  <dl class="familysite">
+    <dt>소속기관</dt>
+    <dd class="on">
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+    </dd>
+  </dl>
+
+
+
+  <script>
+    //dt를 클릭하면 dd를 보이게 / 안보이게
+    const dtBox = document.querySelector('.familysite dt');
+    const ddBox = document.querySelector('.familysite dd');
+    dtBox.addEventListener('click', () => {
+      ddBox.className = 'on';
+    });
+
+    //let bools = true;
+    dtBox.addEventListener('click', () => { //앞에 이름없이 임명 함수
+      //console.log('클릭 실행');
+      if (ddBox.className == '') {
+        ddBox.className = 'on';
+        //bools = false;
+      } else {
+        ddBox.className = '';
+        //bools = true;
+      }
+    }); //지정된 요소에 이벤트 핸들러를 연결하는 데 사용되는 JavaScript의 메소드
+  </script>
+
+
+  <div class="cha_tab">
+
+  </div>
+
+  <script>
+
+  </script>
+</body>
+
+</html>
+
+<!-- 
+
+     <h1>공지사항</h1>
+      <p>공지사항 리스트</p>
+      <span>더보기</span>
+
+      <h1>보도자료</h1>
+      <p>보도자료 리스트</p>
+      <span>보도자료 더보기</span>
+
+      <h1>설명자료</h1>
+      <p>설명자료 리스트</p>
+      <span>설명자료 더보기</span>
+
+      <h1>입찰정보</h1>
+      <p>입찰정보 리스트</p>
+      <span>입찰정보 더보기</span>
+
+      <h1>시험채용</h1>
+      <p>시험채용 리스트</p>
+      <span>시험채용 더보기</span>
+
+      <h1>국가유산지정예고</h1>
+      <p>국가유산지정예고 리스트</p>
+      <span>국가유산지정예고 더보기</span>
+ -->
+
+<!-- 
+
+  .familysite dd {
+      display: none;
+    }
+
+    .familysite dd.on {
+      display: block;
+      background-color: beige;
+    }
+
+    .cha_tab .nTab {
+      width: 704px;
+      height: 265px;
+      border: 1px solid red;
+    }
+
+    .cha_tab>ul::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #e1e3e6;
+      position: relative;
+      left: 0;
+      top: 40px;
+    }
+
+    .cha_tab .nTab>li {
+      width: 69.52px;
+      height: 40px;
+      border: 1px solid red;
+    }
+
+    .cha_tab .nTab>li:first-child {
+      margin-left: 0;
+    }
+
+    .nTab>li>a.on {
+      width: 69.37px;
+      height: 40px;
+      display: block;
+      padding-bottom: 15px;
+    }
+
+    .nTab>li>a.on .tbItem {
+      width: 69.52px;
+      height: 0px;
+      border: 1px solid red;
+      padding: 10px 10%;
+      color: #1d232c;
+      font-size: 14px;
+    }
+
+    .nTab>li>a.on .tbItem>ul {
+      width: 704px;
+      height: 206px;
+      border: 1px solid red;
+    }
+
+    .nTab>li>a.on .tbItem>ul>li {
+      width: 170.37px;
+      height: 206px;
+      border-radius: 1px solid #ced5de;
+      box-sizing: border-box;
+      float: left;
+      width: 24.2%;
+    }
+
+    .nTab>li>a.on .tbItem>ul>li .nt_tit {
+      width: 169.37px;
+      height: 62px;
+    }
+  -->
+
+<!-- 
+
+     <ul class="nTab">
+      <li>
+        <a href="#" class="on">공지사항</a>
+        <div class="tbItem">
+          <ul>
+            <li>
+              <a href="">
+                <div class="nt_tit">
+                  <strong>
+                    <span class="new_icon">
+                      "문화재수리(식물) 표준시방서 및 표준폼샘 폐지"
+                    </span>
+                  </strong>
+                </div>
+                <p class="ntt_text_sum">국립무형유산원의 기록물관리 및 기록관 운영 규정을 폐지함에 있어, 페이지와 주요</p>
+                <span class="nt_date">2024-05-02</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="nt_tit">
+                  <strong>
+                    <span class="new_icon">
+                      "문화재수리(식물) 표준시방서 및 표준폼샘 폐지"
+                    </span>
+                  </strong>
+                </div>
+                <p class="ntt_text_sum">국립무형유산원의 기록물관리 및 기록관 운영 규정을 폐지함에 있어, 페이지와 주요</p>
+                <span class="nt_date">2024-05-02</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="nt_tit">
+                  <strong>
+                    <span class="new_icon">
+                      "문화재수리(식물) 표준시방서 및 표준폼샘 폐지"
+                    </span>
+                  </strong>
+                </div>
+                <p class="ntt_text_sum">국립무형유산원의 기록물관리 및 기록관 운영 규정을 폐지함에 있어, 페이지와 주요</p>
+                <span class="nt_date">2024-05-02</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="nt_tit">
+                  <strong>
+                    <span class="new_icon">
+                      "문화재수리(식물) 표준시방서 및 표준폼샘 폐지"
+                    </span>
+                  </strong>
+                </div>
+                <p class="ntt_text_sum">국립무형유산원의 기록물관리 및 기록관 운영 규정을 폐지함에 있어, 페이지와 주요</p>
+                <span class="nt_date">2024-05-02</span>
+              </a>
+            </li>
+          </ul>
+          <div class="mainMore">
+            <a href="" title="공지사항 더보기">
+              <img src="" alt="더보기">
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+   -->

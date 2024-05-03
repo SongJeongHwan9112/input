@@ -1,0 +1,60 @@
+<!-- 
+addEventListener는 지정된 요소에 이벤트 핸들러를 연결하는 데 사용되는 JavaScript의 메소드입니다. 
+이 메서드를 사용하면 클릭, 마우스 오버, 키다운 등과 같은 HTML 요소의 특정 이벤트를 수신하고 해당 이벤트에 
+대한 응답으로 JavaScript 함수를 실행할 수 있습니다.
+
+
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .familysite dd {
+      display: none;
+    }
+
+    .familysite dd .on {
+      display: block;
+      background-color: beige;
+    }
+  </style>
+</head>
+
+<body>
+  <dl class="familysite">
+    <dt>소속기관</dt>
+    <dd>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+      <div>기관리스트</div>
+    </dd>
+  </dl>
+  <script>
+    //dt를 클릭하면 dd(보이게/안보이게)
+    const dtBox = document.querySelector('.familysite dt');
+    const ddBox = document.querySelector('.familysite dd');
+
+    //let bools = true;
+    dtBox.addEventListener('click', () => { //앞에 이름없이 임명 함수
+      //console.log('클릭 실행');
+      if (ddBox.className == '') {
+        ddBox.className = 'on';
+        //bools = false;
+      } else {
+        ddBox.className = '';
+        //bools = true;
+      }
+    }); //지정된 요소에 이벤트 핸들러를 연결하는 데 사용되는 JavaScript의 메소드
+  </script>
+
+
+</body>
+
+</html>

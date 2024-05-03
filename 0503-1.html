@@ -1,0 +1,138 @@
+<!-- 
+  좋아하는 것 써본것 코드를 써보는 것이 좋다. 
+  안되도 만들어보는것이 중요하다. 
+  완성을 되게 만들기 
+
+  
+
+-->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      color: red;
+      text-align: center;
+    }
+
+    div .on {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <span>1</span>
+  </div>
+  <div>
+    <span>2</span>
+  </div>
+  <div>
+    <span>3</span>
+  </div>
+  <div>
+    <span>4</span>
+  </div>
+  <div>
+    <span>5</span>
+  </div>
+  <div>
+    <span>6</span>
+  </div>
+  <div>
+    <span>7</span>
+  </div>
+  <div>
+    <span>8</span>
+  </div>
+  <div>
+    <span>9</span>
+  </div>
+  <div>
+    <span>10</span>
+  </div>
+</body>
+
+
+
+<script>
+
+  /*  const skar = document.querySelectorAll('div');
+   const skar1 = document.querySelectorAll('span');
+   const skar2 = tabBoxs.length; */
+
+  // 문제1 : div 10줄 > span 10개 만들기
+  for (let i = 1; i <= 10; i++) {
+    document.write('<div>');
+    for (let j = 1; j <= 10; j++) {
+      document.write('<span>🇰🇷</span>');
+    };
+  };
+
+  // 문제2 : 2단~9단 곱하기
+
+
+  /* for (let i = 1; i <= 10; i++) {
+  document.write('<div>');
+  for (let j = 1; j <= 1; j++) {
+    document.write('<span></span>');
+  }
+  document.write('</div>');
+} */
+
+  // 별 만들기
+  for (let i = 1; i <= 10; i++) {
+    document.write('<div>');
+    for (let j = 1; j <= i; j++) {
+      if (j % 2 == 0) {
+        document.write('<span class="on">🇰🇷</span>')
+      } else {
+        document.write('<span>🇦🇶</span>');
+      }
+    }
+    document.write('</div>');
+  }
+
+
+</script>
+
+
+
+</html>
+
+<!--   
+  별피라미드 옆으로 만들기 - 구글링 
+  let data = '';
+  //상단
+  for (let i = 0; i < 6; i++) {
+    for (let b = 0; b < (5 - i); b++) {
+      data += '';
+    }
+    for (let j = 0; j < (2 * i + 1); j++) {
+      data += '*';
+    }
+    data += '\n';
+  }
+  //하단
+  for (let i = 0; i < 6; i++) {
+    for (let b = 0; b < i; b++) {
+      data += '';
+    }
+    for (let j = 0; j < (2 * (5 - i) + 1); j++) {
+      data += '*';
+    }
+    data += '\n';
+  }
+  console.log(data); -->
+
+<!--  skar[a].addEventListener('click', () => {
+      for (let b = 0; b <= 10; b++) {
+        skar1[b].className('');
+      }
+      skar[a].className('on');
+    }); -->
